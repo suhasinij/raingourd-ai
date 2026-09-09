@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Google Cloud / credentials
+*.json
+!package.json
+!package-lock.json
+
+# ADK local files
+.adk/
+
+#Node
+node_modules/
+
+#OS / editor files
+.DS_Store
+.vscode/
+.idea/

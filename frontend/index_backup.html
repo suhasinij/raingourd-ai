@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content='width=device-width,
+initial-scale=1.0">
+<title>RainGourd-AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<header>
+<h1>RainGourd-AI</h1>
+<p>AI-Powered Smart Farming Assistant</p>
+</header>
+<main>
+<label for="crop">Crop</label>
+<input id="crop" type="text" placeholder="e.g. Tomato">
+<label for="location">Location</label>
+<input id="location" type="text" placeholder="e.g. Bangalore">
+<label for="question"> What would you like to know?</label>
+<textarea id="question" rows="4" placeholder="e.g. Should I irrigate my tomato crop today?"></textarea>
+<button id="askButton"> Get Farming Advice</buton>
+<div id="status"></div>
+<section id="result" class="result hidden">
+<h2> Recommendation</h2>
+<p id="answer"></p>
+</section>
+</main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

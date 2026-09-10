@@ -1,32 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>RainGourd AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>RainGourd AI | Smart Farming Assistant</title>
+ 
+    <link rel="stylesheet" href="style.css">
 </head>
+ 
 <body>
-  <h1>🌧️ RainGourd AI</h1>
-  <h2>Smart Farming Assistant</h2>
  
-  <p><b>Crop:</b> Tomato</p>
-  <p><b>Location:</b> Bangalore</p>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            🌱 RainGourd <span>AI</span>
+        </div>
  
-  <p><b>What would you like to know?</b></p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analyze">Crop Analysis</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#technology">Technology</a>
+        </nav>
+    </header>
  
-  <p>Should I irrigate my tomato crop today?</p>
  
-  <button id="adviceButton">Get Farming Advice</button>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
  
-  <h3>Status</h3>
-  <p id="status">Ready</p>
+        <div class="hero-content">
  
-  <h3>Result</h3>
-
-  <p><b>Recommendation:</b></p>
-  <p id="recommendation">Your farming recommendation will appear here.</p>
+            <div class="badge">
+                🤖 AI-Powered Smart Farming
+            </div>
  
-  <p><b>Answer:</b></p>
-  <p id="answer">RainGourd AI is ready.</p>
-<script src="app.js"></script>
+            <h1>
+                Smarter decisions.<br>
+                <span>Better harvests.</span>
+            </h1>
+ 
+            <p>
+                RainGourd AI helps farmers make practical crop decisions
+                using AI-powered recommendations and weather-aware insights.
+            </p>
+ 
+            <a href="#analyze" class="primary-button">
+                🌱 Analyze My Crop
+            </a>
+ 
+        </div>
+ 
+        <div class="hero-visual">
+            <div class="farm-card">
+                <div class="farm-icon">🌾</div>
+                <h3>Smart Farming</h3>
+                <p>AI-powered crop guidance</p>
+ 
+                <div class="weather-mini">
+                    <span>🌦️</span>
+                    <div>
+                        <strong>Weather Insight</strong>
+                        <small>Make decisions at the right time</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- Features -->
+    <section class="features">
+ 
+        <div class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>Crop Analysis</h3>
+            <p>Provide crop details and get AI-powered farming guidance.</p>
+        </div>
+ 
+        <div class="feature-card">
+            <div class="feature-icon">🌦️</div>
+            <h3>Weather Context</h3>
+            <p>Consider rainfall and weather conditions before taking action.</p>
+        </div>
+ 
+        <div class="feature-card">
+            <div class="feature-icon">💧</div>
+            <h3>Smart Irrigation</h3>
+            <p>Understand when irrigation may or may not be necessary.</p>
+        </div>
+ 
+        <div class="feature-card">
+            <div class="feature-icon">🧪</div>
+            <h3>Action Guidance</h3>
+            <p>Get simple recommendations on what to do and what to avoid.</p>
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- Crop Analysis -->
+    <section id="analyze" class="analysis-section">
+ 
+        <div class="section-heading">
+            <span>AI CROP ANALYSIS</span>
+            <h2>Ask RainGourd AI</h2>
+            <p>
+                Tell us about your crop and get a practical farming recommendation.
+            </p>
+        </div>
+ 
+ 
+        <div class="analysis-container">
+ 
+            <div class="input-panel">
+ 
+                <h3>🌱 Crop Information</h3>
+ 
+                <label for="crop">Crop</label>
+                <select id="crop">
+                    <option value="Tomato">Tomato</option>
+                    <option value="Rice">Rice</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Cotton">Cotton</option>
+                    <option value="Other">Other</option>
+                </select>
+ 
+ 
+                <label for="location">Location</label>
+                <input
+                    id="location"
+                    type="text"
+                    value="Bangalore"
+                    placeholder="Enter your location"
+                >
+ 
+ 
+                <label for="question">What would you like to know?</label>
+ 
+                <textarea
+                    id="question"
+                    placeholder="Example: Should I irrigate my tomato crop today?"
+                >Should I irrigate my tomato crop today?</textarea>
+ 
+ 
+                <button id="adviceButton" class="analyze-button">
+                    🤖 Get Farming Advice
+                </button>
+ 
+            </div>
+ 
+ 
+            <!-- Result -->
+            <div class="result-panel">
+ 
+                <div class="result-header">
+                    <div>
+                        <span class="result-label">AI ANALYSIS</span>
+                        <h3>🌿 Farming Recommendation</h3>
+                    </div>
+ 
+                    <div id="status" class="status">
+                        Ready
+                    </div>
+                </div>
+ 
+ 
+                <div class="recommendation-box">
+ 
+                    <span class="result-label">RECOMMENDATION</span>
+ 
+                    <p id="recommendation">
+                        Your farming recommendation will appear here.
+                    </p>
+ 
+                </div>
+ 
+ 
+                <div class="answer-box">
+ 
+                    <span class="result-label">AI ANSWER</span>
+ 
+                    <p id="answer">
+                        RainGourd AI is ready to help you make a smarter farming decision.
+                    </p>
+ 
+                </div>
+ 
+ 
+                <div class="action-box">
+ 
+                    <div>
+                        <strong>🌱 What to do</strong>
+                        <p>Use the AI recommendation to make a practical crop decision.</p>
+                    </div>
+ 
+                    <div>
+                        <strong>⚠️ What NOT to do</strong>
+                        <p>Avoid unnecessary farming actions when weather conditions suggest otherwise.</p>
+                    </div>
+ 
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- How It Works -->
+    <section id="how-it-works" class="workflow-section">
+ 
+        <div class="section-heading">
+            <span>HOW IT WORKS</span>
+            <h2>From Farmer Question to AI Guidance</h2>
+        </div>
+ 
+ 
+        <div class="workflow">
+ 
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <h3>Farmer Input</h3>
+                <p>Enter your crop, location and farming question.</p>
+            </div>
+ 
+            <div class="workflow-arrow">→</div>
+ 
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <h3>AI Analysis</h3>
+                <p>RainGourd AI processes the farming question.</p>
+            </div>
+ 
+            <div class="workflow-arrow">→</div>
+ 
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <h3>Weather Context</h3>
+                <p>Weather and rainfall considerations support the decision.</p>
+            </div>
+ 
+            <div class="workflow-arrow">→</div>
+ 
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <h3>Recommendation</h3>
+                <p>Farmers receive simple, actionable guidance.</p>
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- Technology -->
+    <section id="technology" class="technology-section">
+ 
+        <div class="section-heading">
+            <span>TECHNOLOGY</span>
+            <h2>Built with Google Cloud AI</h2>
+        </div>
+ 
+ 
+        <div class="tech-grid">
+ 
+            <div class="tech-card">
+                <strong>🤖 Gemini</strong>
+                <p>AI-powered farming recommendations</p>
+            </div>
+ 
+            <div class="tech-card">
+                <strong>☁️ Google Cloud</strong>
+                <p>Cloud infrastructure for the application</p>
+            </div>
+ 
+            <div class="tech-card">
+                <strong>⚙️ ADK</strong>
+                <p>Agent Development Kit for the AI agent</p>
+            </div>
+ 
+            <div class="tech-card">
+                <strong>🚀 Cloud Run</strong>
+                <p>Deployment of the RainGourd AI application</p>
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- Footer -->
+    <footer>
+ 
+        <div class="footer-logo">
+            🌱 RainGourd AI
+        </div>
+ 
+        <p>Smart farming. Better harvests.</p>
+ 
+        <p class="copyright">
+            Built for Patchamomma 2026
+        </p>
+ 
+    </footer>
+ 
+ 
+    <script src="app.js"></script>
+ 
 </body>
 </html>
-

@@ -32,7 +32,7 @@ adviceButton.addEventListener("click", function () {
         let answerText;
  
         // Scenario 1: Irrigation
-        if (q.includes("irrigat") || q.includes("water")) {
+        if (q.includes("irrigate") || q.includes("water")) {
  
             recommendationText =
                 "Do not irrigate the crop today if heavy rain is expected.";

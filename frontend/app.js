@@ -13,16 +13,16 @@ adviceButton.addEventListener("click", function () {
     if (!question) {
         status.textContent = "Input Required";
         recommendation.textContent = "Please enter a farming question.";
-        answer.textContent = "Tell RainGourd AI what you would like to know about your crop.";
+        answer.textContent = "Enter your question to get farming guidance.";
         return;
     }
  
     status.textContent = "Analyzing...";
-    recommendation.textContent = "RainGourd AI is analyzing your farming question.";
-    answer.textContent = "Considering crop, location and farming conditions...";
+    recommendation.textContent = "RainGourd AI is analyzing your question...";
+    answer.textContent = "Considering crop and weather conditions...";
  
     adviceButton.disabled = true;
-    adviceButton.textContent = "🤖 Analyzing...";
+    adviceButton.textContent = "Analyzing...";
  
     setTimeout(function () {
  
@@ -31,38 +31,52 @@ adviceButton.addEventListener("click", function () {
         let recommendationText;
         let answerText;
  
+        // Scenario 1: Irrigation
         if (q.includes("irrigat") || q.includes("water")) {
  
             recommendationText =
-                "Avoid unnecessary irrigation today if heavy rain is expected.";
+                "Do not irrigate the crop today if heavy rain is expected.";
  
             answerText =
-                `For ${crop} in ${location}, RainGourd AI recommends checking rainfall conditions before irrigation. If sufficient rain is expected, postpone irrigation to avoid waterlogging and unnecessary water use.`;
+                `For ${crop} in ${location}, RainGourd AI recommends avoiding unnecessary irrigation when sufficient rainfall is expected. Check local weather conditions before irrigating.`;
  
-        } else if (q.includes("sow") || q.includes("plant")) {
+        }
+ 
+        // Scenario 2: Sowing
+        else if (q.includes("sow") || q.includes("sowing") || q.includes("plant")) {
  
             recommendationText =
-                "Consider postponing sowing if heavy rain is expected tomorrow.";
+                "Postpone sowing if heavy rain is expected tomorrow.";
  
             answerText =
-                `For ${crop} in ${location}, heavy rainfall can affect newly sown crops. RainGourd AI recommends waiting for a suitable weather window before sowing.`;
+                `For ${crop} in ${location}, heavy rainfall may affect newly sown crops. RainGourd AI recommends waiting for a more suitable weather window before sowing.`;
  
-        } else if (q.includes("fertilizer") || q.includes("fertiliser")) {
+        }
+ 
+        // Scenario 3: Fertilizer
+        else if (
+            q.includes("fertilizer") ||
+            q.includes("fertiliser") ||
+            q.includes("fertilize") ||
+            q.includes("fertilise")
+        ) {
  
             recommendationText =
-                "Avoid applying fertilizer immediately before heavy rainfall.";
+                "Do not apply fertilizer immediately before heavy rainfall.";
  
             answerText =
-                `For ${crop} in ${location}, applying fertilizer before heavy rain may result in nutrient loss. Consider applying it when weather conditions are more suitable.`;
+                `For ${crop} in ${location}, applying fertilizer before heavy rain may lead to nutrient loss. Consider applying fertilizer when weather conditions are suitable.`;
  
-        } else {
+        }
+ 
+        // Other questions
+        else {
  
             recommendationText =
-                "Review current weather and crop conditions before taking action.";
+                "Review crop and weather conditions before taking action.";
  
             answerText =
-                `RainGourd AI has received your question about ${crop} in ${location}. Consider local weather, soil conditions and crop requirements before making a farming decision.`;
- 
+                `RainGourd AI has analyzed your question about ${crop} in ${location}. Consider local weather, soil conditions and crop requirements before making a farming decision.`;
         }
  
         recommendation.textContent = recommendationText;
@@ -71,7 +85,7 @@ adviceButton.addEventListener("click", function () {
         status.textContent = "Completed";
  
         adviceButton.disabled = false;
-        adviceButton.textContent = "🤖 Get Farming Advice";
+        adviceButton.textContent = "Get Farming Advice";
  
     }, 700);
 });

@@ -1,324 +1,305 @@
-🌧️ RainGourd-AI
+🌱 RainGourd-AI — AI-Powered Smart Farming Assistant
  
-AI-Powered Smart Farming Assistant
+«Smart farming. Better harvests.»
  
-RainGourd-AI is an AI-powered smart farming assistant designed to help farmers make better day-to-day agricultural decisions using weather-aware insights and natural-language interaction.
+📌 Project Description
  
-The application provides practical recommendations for farming activities such as irrigation, sowing, and fertilizer application based on weather and rainfall conditions.
+RainGourd-AI is an AI-powered smart farming assistant designed to help farmers make practical crop-care decisions using crop information, location, weather/rainfall context, and generative AI.
+ 
+The application provides simple and actionable recommendations focused on what to do and what not to do.
  
 ---
  
-🎯 Problem Statement
+❗ Problem Statement
  
-Farmers often need to make time-sensitive decisions about irrigation, sowing, fertilizer application, and other agricultural activities.
+Farmers often need to make important crop-care decisions with limited information and changing weather conditions.
  
-Unexpected rainfall or unfavorable weather conditions can lead to:
+They may need guidance on:
  
-- Unnecessary irrigation
-- Poor timing of sowing
-- Inefficient fertilizer application
-- Crop damage
-- Increased resource usage
+- Whether to irrigate a crop
+- Whether to sow a crop
+- Whether to apply fertilizer
+- How to respond to changing weather conditions
+- What action should be taken for better crop management
  
-RainGourd-AI aims to provide accessible AI-assisted guidance that helps farmers make more informed, weather-aware decisions.
+Changing rainfall and weather conditions can make these decisions difficult. Unnecessary irrigation, sowing, or fertilizer application can also waste resources.
  
 ---
  
 💡 Solution
  
-RainGourd-AI combines a conversational AI agent with weather-related information to provide understandable and actionable agricultural recommendations.
+RainGourd-AI acts as an intelligent farming assistant that helps farmers make better day-to-day crop-care decisions.
  
-Farmers can ask questions in natural language and receive AI-generated guidance for common farming decisions.
+Workflow
  
-Example Questions
+Farmer Input → Crop & Location Context → AI Analysis → Weather/Rainfall Context → Recommendation → Farmer Action
  
-- Should I irrigate my tomato crop today?
-- Is it a good time to sow tomorrow?
-- Should I apply fertilizer today?
-- What should I do if heavy rain is expected?
+The farmer provides crop information, location, and a farming-related question.
  
----
+RainGourd-AI processes the request using a Google ADK agent powered by Gemini and provides a practical recommendation.
  
-🚀 Key Features
+The response focuses on:
  
-- 🌦️ Weather-aware agricultural recommendations
-- 🤖 AI-powered conversational interaction
-- 🌱 Farming activity guidance
-- 💧 Irrigation recommendations
-- 🌾 Sowing recommendations
-- 🧪 Fertilizer timing guidance
-- ⚡ Fast web-based interaction
-- ☁️ Google Cloud deployment
-- 📱 Simple and accessible user interface
+✅ What to do
+ 
+The recommended farming action.
+ 
+🚫 What not to do
+ 
+The unnecessary or potentially unsuitable action to avoid.
+ 
+This makes the AI response simple and actionable rather than complicated or highly technical.
  
 ---
  
 🏗️ Architecture
  
-                    ┌──────────────────────┐
-                    │        Farmer        │
-                    │        / User        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   RainGourd-AI Web   │
-                    │      Interface       │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    Backend / API     │
-                    │      Service         │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Google ADK Agent   │
-                    │  AI Agent / Logic    │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    Google Gemini     │
-                    │    Generative AI     │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Weather & Farming    │
-                    │     Information      │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │  AI Farming Advice   │
-                    │ Irrigation / Sowing  │
-                    │ Fertilizer / Rain    │
-                    └──────────────────────┘
+                    👨‍🌾 Farmer
+                        │
+                        ▼
+              🌐 Web Application
+                        │
+                        ▼
+              ☁️ Google Cloud Run
+                        │
+                        ▼
+                 🤖 Google ADK
+                    Agent
+                        │
+                        ▼
+               🧠 Gemini 2.5 Flash
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+       🌦️ Weather /           🌱 Crop &
+       Rainfall Context       Location Context
+              │                   │
+              └─────────┬─────────┘
+                        ▼
+              💡 AI Recommendation
+                        │
+                        ▼
+                    👨‍🌾 Farmer
  
-The application uses a web interface to receive farmer queries, processes them through the backend and AI agent, and generates practical weather-aware farming recommendations.
+Architecture Components
  
----
-
-## 🛠️ Tech Stack
+🌐 Web Frontend
  
-```mermaid
-flowchart TB
-    A["🌱 RainGourd-AI<br/>AI-Powered Smart Farming Assistant"]
+The web interface allows farmers to provide crop information, location, and farming-related questions.
  
-    A --> B["🖥️ Frontend"]
-    A --> C["🤖 Backend & AI"]
-    A --> D["📊 Data & Analytics"]
-    A --> E["🔧 Messaging & Tools"]
+☁️ Google Cloud Run
  
-    B --> B1["React.js"]
-    B --> B2["JavaScript"]
-    B --> B3["Firebase / Firestore"]
+Hosts the deployed RainGourd-AI application and provides the cloud runtime for the application.
  
-    C --> C1["Google Cloud Run"]
-    C --> C2["Python"]
-    C --> C3["Gemini API"]
-    C --> C4["Google ADK"]
+🤖 Google ADK
  
-    D --> D1["BigQuery"]
-    D --> D2["Looker"]
-    D --> D3["AlloyDB Omni"]
+Google Agent Development Kit is used to build and deploy the AI agent that processes farming requests.
  
-    E --> E1["Pub/Sub"]
-    E --> E2["MCP Toolbox"]
-    E --> E3["Gemma"]
+🧠 Gemini 2.5 Flash
+ 
+Gemini provides the generative AI reasoning used to understand the farmer's question and generate practical recommendations.
+ 
+🌦️ Weather / Rainfall Context
+ 
+Weather and rainfall information can be considered as supporting context when making farming recommendations.
+ 
+🔥 Firebase / Firestore
+ 
+Firebase / Firestore can support application data storage and persistence.
  
 ---
  
-### 2. User Guide — visual walkthrough
+🛠️ Tech Stack
  
-```markdown
-## 👨‍🌾 User Guide – Walkthrough
- 
-```mermaid
-flowchart LR
-    A["1️⃣ Open<br/>RainGourd-AI"]
-    B["2️⃣ Enter Farming Details<br/>Crop + Location + Question"]
-    C["3️⃣ AI Analysis<br/>Gemini + ADK"]
-    D["4️⃣ Weather & Crop Context<br/>Rainfall + Conditions"]
-    E["5️⃣ Get Recommendation<br/>What to Do / What Not to Do"]
-    F["6️⃣ Take Action<br/>Make Smarter Farming Decisions"]
- 
-    A --> B --> C --> D --> E --> F
- 
-    E --> G["🌱 Example:<br/>Avoid irrigation if<br/>heavy rain is expected"]
-
----
-
-### 3. Complete workflow — another useful visual
- 
-```markdown
-## 🌧️ RainGourd-AI Workflow
- 
-```mermaid
-flowchart TD
-    A["👨‍🌾 Farmer Input"]
-    B["📷 Crop Image & Context"]
-    C["🤖 AI Analysis"]
-    D["🌦️ Weather / Rainfall Intelligence"]
-    E["💡 Farming Recommendation"]
-    F["✅ Farmer Action"]
- 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
- 
-    F --> G["🌱 Better Crop Decisions"]
----
-
-📂 Project Structure
- 
-raingourd-ai/
-│
-├── frontend/
-├── raingourd_agent/
-├── src/
-├── .gitignore
-├── .python-version
-├── package.json
-├── pyproject.toml
-├── README.md
-└── uv.lock
+Technology| Purpose
+🧠 Gemini 2.5 Flash| Generative AI reasoning
+🤖 Google ADK| AI agent development
+☁️ Google Cloud Run| Application deployment
+🔥 Firebase / Firestore| Application data storage
+🐍 Python| Agent/backend development
+🌐 HTML| Web structure
+🎨 CSS| Web styling
+⚡ JavaScript| Frontend interaction
+☁️ Google Cloud| Cloud infrastructure
  
 ---
  
-🌐 Live Demo
+✨ Key Features
  
-RainGourd-AI Live Application
- 
-The application is deployed on Google Cloud and provides an interactive web interface for testing the AI-powered farming assistant.
- 
-Live App:
-LIVE_APP_URL_WILL_BE_ADDED_HERE
- 
----
- 
-🎥 Demo Video
- 
-A project demonstration video will show:
- 
-- The live application
-- Farmer interaction with the AI assistant
-- Weather-aware recommendations
-- Irrigation recommendation
-- Sowing recommendation
-- Fertilizer recommendation
-- Overall application workflow
- 
-Demo Video:
-DEMO_VIDEO_URL_WILL_BE_ADDED_HERE
+- 🌱 Crop-aware farming assistance
+- 📍 Location-aware farming questions
+- 🌦️ Weather and rainfall-aware recommendations
+- 🤖 Gemini-powered AI responses
+- 💬 Natural-language farming questions
+- ✅ Clear recommended actions
+- 🚫 Clear actions to avoid
+- 🌐 Cloud-hosted application
+- 📱 Simple and farmer-friendly interface
  
 ---
  
-📄 Technical Documentation
+📱 User Guide / Walkthrough
  
-The complete technical documentation covers:
+Step 1 — Open RainGourd-AI
  
-1. Project Description
-2. Project Use Case
-3. Architecture Diagram
-4. Technology Stack
-5. Implementation
-6. Deployment
-7. Testing
-8. Future Enhancements
+Open the RainGourd-AI web application.
  
-Documentation:
-GOOGLE_DOCS_URL_WILL_BE_ADDED_HERE
+Step 2 — Enter Crop Information
  
----
+Provide the crop you need advice about.
  
-📝 Technical Blog
+Example:
  
-A detailed technical article describing the problem, solution, architecture, Google technologies, implementation, and deployment of RainGourd-AI will be published on Medium.
+Crop: Tomato
  
-Technical Blog:
-MEDIUM_ARTICLE_URL_WILL_BE_ADDED_HERE
+Step 3 — Enter Location
  
----
+Provide the farming location.
  
-🧪 Testing
+Example:
  
-The application is tested using representative farming scenarios.
+Location: Bangalore
  
-Scenario 1 — Irrigation
+Step 4 — Ask a Farming Question
  
-Question:
+Example:
+ 
 Should I irrigate my tomato crop today?
  
-The application provides a weather-aware recommendation instead of simply giving a generic irrigation answer.
+Step 5 — Get Farming Advice
  
-Scenario 2 — Sowing
+Click:
+ 
+Get Farming Advice
+ 
+The request is processed by the RainGourd-AI AI agent.
+ 
+Step 6 — Follow the Recommendation
+ 
+The application provides practical guidance explaining the recommended action and what unnecessary action should be avoided.
+ 
+---
+ 
+🧪 Example Use Cases
+ 
+🌧️ Use Case 1 — Irrigation
+ 
+Crop: Tomato
+ 
+Location: Bangalore
  
 Question:
-Is it a good time to sow tomorrow?
  
-The AI considers rainfall conditions and provides an actionable recommendation.
+Should I irrigate my tomato crop today?
  
-Scenario 3 — Fertilizer
+Example recommendation:
+ 
+«Avoid unnecessary irrigation when sufficient rainfall is expected. Check the latest local weather before irrigating.»
+ 
+---
+ 
+🌱 Use Case 2 — Sowing
  
 Question:
+ 
+Should I sow my crop today if heavy rain is expected tomorrow?
+ 
+Example recommendation:
+ 
+«Given the chance of heavy rain tomorrow, it is generally better to postpone sowing until conditions are more suitable.»
+ 
+---
+ 
+🌾 Use Case 3 — Fertilizer
+ 
+Question:
+ 
 Should I apply fertilizer today?
  
-The application provides guidance based on the expected weather conditions.
+Example recommendation:
  
-Scenario 4 — Heavy Rain
- 
-Question:
-What should I do if heavy rain is expected?
- 
-The assistant provides practical precautions for farming activities.
+«It may be better to avoid applying fertilizer when heavy rainfall is expected, as nutrients may be lost through runoff.»
  
 ---
  
-🔐 Security
+🎯 Project Use Case
  
-Security is an important part of the project.
+RainGourd-AI can support farmers with everyday crop-management decisions such as:
  
-The public repository does not intentionally contain:
+- Irrigation planning
+- Sowing decisions
+- Fertilizer application
+- Weather-aware crop care
+- General crop-management questions
  
-- API keys
-- Access tokens
-- Passwords
-- Service account credentials
-- Private configuration
-- ".env" files
- 
-Sensitive configuration should be provided through secure environment/configuration mechanisms and should never be committed to source control.
+The application is designed to provide simple and practical AI assistance and is not intended to replace professional agricultural advice.
  
 ---
  
-🌱 Future Enhancements
+🔄 End-to-End Workflow
  
-Potential future improvements include:
- 
-- Location-specific weather intelligence
-- Crop-specific recommendations
-- Multi-language farmer support
-- Voice-based interaction
-- Pest and disease intelligence
-- Historical weather analysis
-- Personalized farm profiles
-- Additional agricultural data sources
+Farmer
+   ↓
+Provides Crop + Location + Question
+   ↓
+RainGourd-AI Web Application
+   ↓
+Google Cloud Run
+   ↓
+Google ADK Agent
+   ↓
+Gemini 2.5 Flash
+   ↓
+Context & AI Reasoning
+   ↓
+Practical Farming Recommendation
+   ↓
+Farmer Action
  
 ---
  
-🏆 Project
+🚀 Live Application
  
 RainGourd-AI
  
-Built as part of the Patchamomma 2026 Build Phase.
+https://raingourd-ai-frontend-375052250876.asia-south1.run.app
+ 
+The application is deployed and running on Google Cloud Run.
  
 ---
  
-⚠️ Disclaimer
+🎥 Demo Walkthrough
  
-RainGourd-AI provides AI-assisted informational recommendations and should not replace professional agricultural advice or local agricultural expert guidance.
+The demo demonstrates how a farmer can:
+ 
+1. Open the RainGourd-AI application
+2. Enter a crop
+3. Enter a location
+4. Ask a farming question
+5. Receive an AI-generated recommendation
+6. Understand what action to take and what action to avoid
+ 
+---
+ 
+🔮 Future Enhancements
+ 
+Potential future enhancements include:
+ 
+- 📷 Crop image analysis
+- 🌦️ Real-time weather API integration
+- 🌍 Multiple language support
+- 🗺️ More location-specific recommendations
+- 🌱 Expanded crop-specific intelligence
+- 📊 Historical farming insights
+- 🔔 Weather-based farming alerts
+- 📱 Improved mobile experience
+ 
+---
+ 
+🏆 Project Goal
+ 
+RainGourd-AI aims to make AI-powered farming assistance simple, accessible, practical, and actionable.
+ 
+The project combines Google Cloud, Google ADK, and Gemini to demonstrate how generative AI can assist farmers with everyday crop-care decisions.
+ 
+«Smart farming. Better harvests. 🌱»

@@ -100,36 +100,80 @@ Example Questions
 The application uses a web interface to receive farmer queries, processes them through the backend and AI agent, and generates practical weather-aware farming recommendations.
  
 ---
+
+## 🛠️ Tech Stack
  
-🛠️ Technology Stack
+```mermaid
+flowchart TB
+    A["🌱 RainGourd-AI<br/>AI-Powered Smart Farming Assistant"]
  
-AI & Agent
+    A --> B["🖥️ Frontend"]
+    A --> C["🤖 Backend & AI"]
+    A --> D["📊 Data & Analytics"]
+    A --> E["🔧 Messaging & Tools"]
  
-- Google Gemini
-- Google Agent Development Kit (ADK)
-- Generative AI
+    B --> B1["React.js"]
+    B --> B2["JavaScript"]
+    B --> B3["Firebase / Firestore"]
  
-Application
+    C --> C1["Google Cloud Run"]
+    C --> C2["Python"]
+    C --> C3["Gemini API"]
+    C --> C4["Google ADK"]
  
-- Python
-- JavaScript
-- HTML
-- CSS
-- Node.js
+    D --> D1["BigQuery"]
+    D --> D2["Looker"]
+    D --> D3["AlloyDB Omni"]
  
-Cloud
- 
-- Google Cloud
-- Cloud Run
- 
-Development
- 
-- Git
-- GitHub
-- Google Cloud Shell
+    E --> E1["Pub/Sub"]
+    E --> E2["MCP Toolbox"]
+    E --> E3["Gemma"]
  
 ---
  
+### 2. User Guide — visual walkthrough
+ 
+```markdown
+## 👨‍🌾 User Guide – Walkthrough
+ 
+```mermaid
+flowchart LR
+    A["1️⃣ Open<br/>RainGourd-AI"]
+    B["2️⃣ Enter Farming Details<br/>Crop + Location + Question"]
+    C["3️⃣ AI Analysis<br/>Gemini + ADK"]
+    D["4️⃣ Weather & Crop Context<br/>Rainfall + Conditions"]
+    E["5️⃣ Get Recommendation<br/>What to Do / What Not to Do"]
+    F["6️⃣ Take Action<br/>Make Smarter Farming Decisions"]
+ 
+    A --> B --> C --> D --> E --> F
+ 
+    E --> G["🌱 Example:<br/>Avoid irrigation if<br/>heavy rain is expected"]
+
+---
+
+### 3. Complete workflow — another useful visual
+ 
+```markdown
+## 🌧️ RainGourd-AI Workflow
+ 
+```mermaid
+flowchart TD
+    A["👨‍🌾 Farmer Input"]
+    B["📷 Crop Image & Context"]
+    C["🤖 AI Analysis"]
+    D["🌦️ Weather / Rainfall Intelligence"]
+    E["💡 Farming Recommendation"]
+    F["✅ Farmer Action"]
+ 
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+ 
+    F --> G["🌱 Better Crop Decisions"]
+---
+
 📂 Project Structure
  
 raingourd-ai/
